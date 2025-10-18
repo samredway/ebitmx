@@ -51,16 +51,16 @@ type TilesetRef struct {
 
 // Map is the representation of a map in a TMX file
 type Map struct {
-	XMLName      xml.Name      `xml:"map"`
-	Version      string        `xml:"version,attr"`
-	TiledVersion string        `xml:"tiledversion,attr"`
-	Orientation  string        `xml:"orientation,attr"`
-	RenderOrder  string        `xml:"renderorder,attr"`
-	Width        int           `xml:"width,attr"`
-	Height       int           `xml:"height,attr"`
-	TileWidth    int           `xml:"tilewidth,attr"`
-	TilHeight    int           `xml:"tileheight,attr"`
-	Infinite     bool          `xml:"infinite,attr"`
+	XMLName      xml.Name `xml:"map"`
+	Version      string   `xml:"version,attr"`
+	TiledVersion string   `xml:"tiledversion,attr"`
+	Orientation  string   `xml:"orientation,attr"`
+	RenderOrder  string   `xml:"renderorder,attr"`
+	Width        int      `xml:"width,attr"`
+	Height       int      `xml:"height,attr"`
+	TileWidth    int      `xml:"tilewidth,attr"`
+	TilHeight    int      `xml:"tileheight,attr"`
+	Infinite     bool     `xml:"infinite,attr"`
 	// TODO nextlayerid and nextobjectid ?
 
 	Tilesets []TilesetRef `xml:"tileset"`
