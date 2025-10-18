@@ -2,8 +2,8 @@ package ebitmx
 
 import (
 	"fmt"
+	"io"
 	"io/fs"
-	"io/ioutil"
 	"os"
 	"strconv"
 	"strings"
@@ -17,6 +17,7 @@ type EbitenMap struct {
 	MapHeight  int
 	MapWidth   int
 	Layers     [][]int
+	Tilesets   []TilesetRef
 }
 
 // GetEbitenMap returns a map that Ebiten can understand
@@ -38,7 +39,7 @@ func GetEbitenMapFromFS(fileSystem fs.FS, path string) (*EbitenMap, error) {
 
 	defer tmxFile.Close()
 
-	bytes, err := ioutil.ReadAll(tmxFile)
+	bytes, err := io.ReadAll(tmxFile)
 	if err != nil {
 		return nil, fmt.Errorf("error reading TMX file %s: %v", path, err)
 	}
@@ -57,6 +58,7 @@ func transformMapToEbitenMap(tmx *Map) (*EbitenMap, error) {
 		TileHeight: tmx.TileWidth,
 		MapHeight:  tmx.Height,
 		MapWidth:   tmx.Width,
+		Tilesets:   tmx.Tilesets,
 	}
 
 	var ebitenLayers [][]int

@@ -2,8 +2,8 @@ package ebitmx
 
 import (
 	"fmt"
+	"io"
 	"io/fs"
-	"io/ioutil"
 	"math"
 	"os"
 )
@@ -32,7 +32,7 @@ func GetTilesetFromFS(fileSystem fs.FS, path string) (*EbitenTileset, error) {
 	}
 	defer tsxFile.Close()
 
-	bytes, err := ioutil.ReadAll(tsxFile)
+	bytes, err := io.ReadAll(tsxFile)
 	if err != nil {
 		return nil, fmt.Errorf("error reading TSX file %s: %v", path, err)
 	}
