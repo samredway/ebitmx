@@ -17,8 +17,8 @@ type Tileset struct {
 
 type Image struct {
 	XMLName xml.Name `xml:"image"`
-	Format  string   `xml:"format"`
-	Source  string   `xml:"source"`
+	Format  string   `xml:"format,attr"`
+	Source  string   `xml:"source,attr"`
 	Width   int      `xml:"width,attr"`
 	Height  int      `xml:"height,attr"`
 }
